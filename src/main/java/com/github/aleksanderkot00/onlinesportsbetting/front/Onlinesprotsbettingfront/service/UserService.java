@@ -17,16 +17,11 @@ import java.util.List;
 @Service
 public class UserService implements UserDetailsService {
 
-    private final UserClient userClient;
-
-    @Autowired
-    public UserService(UserClient userClient) {
-        this.userClient = userClient;
-    }
+    private final UserClient userClient = new UserClient();
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        List<UserDetailsDto> users = userClient.getUsers();
+        List<UserDetailsDto> users = userClient.getUsersDetails();
         UserDetailsDto user = users.stream()
                 .filter(u -> u.getEmail().equals(username))
                 .findAny().orElseThrow(EmailNotFoundException::new);
