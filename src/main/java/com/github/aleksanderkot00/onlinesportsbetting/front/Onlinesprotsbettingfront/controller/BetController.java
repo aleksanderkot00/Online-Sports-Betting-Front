@@ -27,7 +27,7 @@ public class BetController {
     }
 
     @PatchMapping("/{betId}")
-    public BetDto editBet(@PathVariable long betId) {
+    public BetDto changeActivity(@PathVariable long betId) {
         return betClient.changeActivity(betId);
     }
 

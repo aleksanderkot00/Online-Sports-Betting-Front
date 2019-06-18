@@ -35,8 +35,8 @@ public class BetClient {
         return ofNullable(response).orElseThrow(BetNotFoundException::new);
     }
 
-    public BetDto changeActivity(long evetnid) {
-        URI url = UriComponentsBuilder.fromHttpUrl(BackendConfig.ENDPOINT + "bets/" + evetnid).build().encode().toUri();
+    public BetDto changeActivity(long betId) {
+        URI url = UriComponentsBuilder.fromHttpUrl(BackendConfig.ENDPOINT + "bets/" + betId).build().encode().toUri();
         BetDto response = restTemplate.patchForObject(url, null, BetDto.class);
         return ofNullable(response).orElseThrow(BetNotFoundException::new);
     }

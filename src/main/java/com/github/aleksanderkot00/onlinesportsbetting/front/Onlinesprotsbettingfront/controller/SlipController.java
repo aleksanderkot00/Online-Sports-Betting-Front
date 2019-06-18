@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("users")
-public class UserController {
+public class SlipController {
 
     private final SlipClient slipClient = new SlipClient();
 

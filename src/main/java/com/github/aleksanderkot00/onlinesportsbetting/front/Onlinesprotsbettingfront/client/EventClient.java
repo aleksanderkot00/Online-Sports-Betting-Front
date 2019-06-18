@@ -35,8 +35,8 @@ public class EventClient {
         return ofNullable(response).orElseThrow(EventNotFoundException::new);
     }
 
-    public EventDto editEvent(long evetnId, EventDto eventDto) {
-        URI url = UriComponentsBuilder.fromHttpUrl(BackendConfig.ENDPOINT + "events/" + evetnId).build().encode().toUri();
+    public EventDto editEvent(long eventId, EventDto eventDto) {
+        URI url = UriComponentsBuilder.fromHttpUrl(BackendConfig.ENDPOINT + "events/" + eventId).build().encode().toUri();
         EventDto response = restTemplate.patchForObject(url, eventDto, EventDto.class);
         return ofNullable(response).orElseThrow(EventNotFoundException::new);
     }
