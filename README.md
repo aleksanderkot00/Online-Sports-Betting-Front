@@ -19,5 +19,5 @@ to
 ```
 compile('org.projectlombok:lombok')
 ```
-in build.gradle. Project is cotencted to online database then you need Internet connection.
+in build.gradle. Project is connected to online database then you need Internet connection.
 
