@@ -3,10 +3,12 @@ Simple front-end in Vaadin to Online-Sports-Betting Api - https://github.com/ale
 
 ## DEMO
 
-[Demo of this application connected with back-end](). To use it register or use user:
+[Demo of this application connected with back-end](https://osb-front.herokuapp.com/). To use it register or use user:
 
 email: user@user
 password: user
+
+It will take a while before front-end and back-end will be loaded.
 
 ## HOW TO RUN
 
