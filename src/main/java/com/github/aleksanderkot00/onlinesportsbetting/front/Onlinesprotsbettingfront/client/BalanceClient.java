@@ -2,12 +2,8 @@ package com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbetting
 
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.configuration.BackendConfig;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.BalanceDto;
-import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.BetDto;
-import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.CategoryDto;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.ValueDto;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.exception.ExchangeRatesNotAvailableException;
-import org.apache.http.HttpResponse;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;

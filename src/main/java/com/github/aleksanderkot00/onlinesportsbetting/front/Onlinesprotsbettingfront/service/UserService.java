@@ -3,7 +3,6 @@ package com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbetting
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.exception.EmailNotFoundException;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.client.UserClient;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.UserDetailsDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

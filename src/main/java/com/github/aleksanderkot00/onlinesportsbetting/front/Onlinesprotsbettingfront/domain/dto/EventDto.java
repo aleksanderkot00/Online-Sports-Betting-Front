@@ -20,4 +20,14 @@ public class EventDto {
     private String teamTwoName;
     private BigDecimal teamOneScore;
     private BigDecimal teamTwoScore;
+
+    @Override
+    public String toString() {
+        return  dateTime +
+                ", categoryName='" + categoryName + '\'' +
+                ", teamOneName='" + teamOneName + '\'' +
+                ", teamTwoName='" + teamTwoName + '\'' +
+                ", teamOneScore=" + teamOneScore +'\'' +
+                ", teamTwoScore=" + teamTwoScore ;
+    }
 }

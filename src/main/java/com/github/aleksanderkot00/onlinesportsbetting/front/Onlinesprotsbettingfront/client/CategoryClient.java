@@ -3,7 +3,6 @@ package com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbetting
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.configuration.BackendConfig;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.CategoryDto;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.NameDto;
-import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.SlipDto;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.exception.CategoryNotFoundException;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;

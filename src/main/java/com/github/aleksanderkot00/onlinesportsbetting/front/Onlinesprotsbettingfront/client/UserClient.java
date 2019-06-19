@@ -53,4 +53,10 @@ public class UserClient {
         UserDetailsDto[] response = restTemplate.getForObject(url, UserDetailsDto[].class);
         return Arrays.asList(ofNullable(response).orElse(new UserDetailsDto[0]));
     }
+
+    public long getUserIdByEmail(String email) {
+        return getUsersDetails().stream()
+                .filter(userDetailsDto -> userDetailsDto.getEmail().equals(email))
+                .findFirst().orElseThrow(UserNotFoundException::new).getUserId();
+    }
 }

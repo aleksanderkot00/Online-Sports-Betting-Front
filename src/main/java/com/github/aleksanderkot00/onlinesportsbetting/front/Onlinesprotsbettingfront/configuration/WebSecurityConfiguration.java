@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -26,16 +27,29 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().and()
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers( "/greet/*", "/path").permitAll()
-                .antMatchers("/users/**").permitAll()
-                .antMatchers( "/greet/**").hasRole("USER")
+                .antMatchers("/", "/events", "/registration","/matches").permitAll()
+                .anyRequest().hasRole("USER")
                 .and()
                 .formLogin().permitAll()
                 .and()
-                .logout().permitAll()
-                .and()
-                .csrf().disable();
+                .logout().permitAll().logoutSuccessUrl("http://localhost:8081/");
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers(
+                "/VAADIN/**",
+                "/favicon.ico",
+                "/robots.txt",
+                "/manifest.webmanifest",
+                "/sw.js",
+                "/offline-page.html",
+                "/icons/**",
+                "/images/**",
+                "/frontend/**",
+                "/webjars/**"
+        );
     }
 }

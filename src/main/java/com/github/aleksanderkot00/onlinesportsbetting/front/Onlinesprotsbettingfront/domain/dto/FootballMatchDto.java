@@ -2,17 +2,11 @@ package com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbetting
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Builder
+@Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FootballMatchDto {
 

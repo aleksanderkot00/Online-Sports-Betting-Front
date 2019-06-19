@@ -1,13 +1,16 @@
 package com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.io.Serializable;
+
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRegistrationDto {
+@ToString
+public class UserRegistrationDto implements Serializable {
     private String name;
     private String lastName;
     private String email;
