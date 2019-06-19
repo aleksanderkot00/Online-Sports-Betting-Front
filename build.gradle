@@ -21,7 +21,8 @@ dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	implementation('com.vaadin:vaadin-spring-boot-starter')
-	compile('org.projectlombok:lombok:1.18.8')
+	compileOnly('org.projectlombok:lombok')
+	annotationProcessor('org.projectlombok:lombok')
 	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	testImplementation('org.springframework.security:spring-security-test')

@@ -1,6 +1,13 @@
 # Online Sports Betting Front-End
 Simple front-end in Vaadin to Online-Sports-Betting Api - https://github.com/aleksanderkot00/Online-Sports-Betting
 
+## DEMO
+
+[Demo of this application connected with back-end](). To use it register or use user:
+
+email: user@user
+password: user
+
 ## HOW TO RUN
 
 To run this project in your IDE you need to have lombok plugin and enable annotation processing. If there will be problems with building change 
