@@ -5,12 +5,16 @@ import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingf
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.client.SlipClient;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.client.UserClient;
 import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.BetDto;
+import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.domain.dto.EventDto;
+import com.github.aleksanderkot00.onlinesportsbetting.front.Onlinesprotsbettingfront.exception.EventNotFoundException;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import org.springframework.security.core.context.SecurityContextHolder;
+
+import java.util.List;
 
 
 @Route("bets")
@@ -21,6 +25,8 @@ public class Bets extends VerticalLayout {
     private EventClient eventClient = new EventClient();
     private UserClient userClient = new UserClient();
     private SlipClient slipClient = new SlipClient();
+    private final long userId = userClient.getUserIdByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
+    private List<EventDto> events = eventClient.getEvents();
 
     Button menu = new Button("Menu");
 
@@ -33,13 +39,12 @@ public class Bets extends VerticalLayout {
     }
     private void refresh() {
         grid.setItems(betClient.getBets());
-        grid.addColumn(betDto -> eventClient.getEvent(betDto.getEventId()).getDateTime());
-        grid.addColumn(betDto -> eventClient.getEvent(betDto.getEventId()).getTeamOneName());
-        grid.addColumn(betDto -> eventClient.getEvent(betDto.getEventId()).getTeamTwoName());
+        grid.addColumn(betDto -> getEventById(betDto.getEventId()).getDateTime());
+        grid.addColumn(betDto -> getEventById(betDto.getEventId()).getTeamOneName());
+        grid.addColumn(betDto -> getEventById(betDto.getEventId()).getTeamTwoName());
         grid.addComponentColumn(betDto -> {
             Button button = new Button("Add To Slip");
-            if (betDto.isActive() && SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
-                long userId = userClient.getUserIdByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
+            if (betDto.isActive()) {
                 button.addClickListener(click -> {
                     slipClient.addBetToCart(userId, betDto.getBetId());
                     Notification.show("Bet added to your slip ");
@@ -52,5 +57,9 @@ public class Bets extends VerticalLayout {
         });
         menu.addClickListener(event -> menu.getUI().ifPresent(ui -> ui.navigate("")));
     }
-
+    private EventDto getEventById(long id) {
+        return events.stream()
+                .filter(eventDto -> eventDto.getEventId() == id)
+                .findFirst().orElseThrow(EventNotFoundException::new);
+    }
 }
