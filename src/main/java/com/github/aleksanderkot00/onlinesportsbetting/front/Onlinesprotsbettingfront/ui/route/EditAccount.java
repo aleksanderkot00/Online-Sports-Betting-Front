@@ -25,7 +25,7 @@ public class EditAccount extends FormLayout {
     private UserRegistrationDto userRegistrationDto = new UserRegistrationDto();
     Binder<UserRegistrationDto> binder;
     Button menu = new Button("Menu");
-    Button button = new Button("Register", VaadinIcon.CHECK.create());
+    Button button = new Button("Edit", VaadinIcon.CHECK.create());
 
     public EditAccount() {
         binder = new Binder<>(UserRegistrationDto.class);

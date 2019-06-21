@@ -51,7 +51,8 @@ public class MainView extends VerticalLayout {
                     .executeJavaScript("window.open(\"http://localhost:8081/logout\", \"_self\");"));
         });
         if (name.contains("@")) {
-            add(accountButton, cartSlipButton, eventsButton, betsButton, cartSlipButton, lastMatchesButton, logoutButton);
+            add(accountButton, cartSlipButton, eventsButton, betsButton,
+                    categoriesButton, lastMatchesButton, logoutButton);
         } else {
             add(loginButton, registrationButton, eventsButton,
                     categoriesButton, lastMatchesButton);
